@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Fullpage</title>
+  <link rel="stylesheet" href="css/jquery.bxslider.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fullpage.css">
+  <link rel="stylesheet" href="css/colorbox/colorbox.css">
+  <link rel="stylesheet" href="css/swiper.css">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/jquery.fullPage.js"></script>
+  <script src="js/jquery.bxslider.js"></script>
+  <script src="js/jquery.colorbox.js"></script>
+  <script src="js/swiper.js"></script>  
+  <script>
+  	$(document).ready(function(){
+  		$("#fullpage").fullpage({
+  			menu: "#topmenu",
+  			navigation:true,
+  			slideNavigation:true
+  		});
+
+      $(".tb").click(function(){
+        var i = $(this).index();
+        console.log(i);
+        $("#img>p").hide().eq(i).show();  
+      });
+
+      var current = 0;
+      $(".right").click(function(){
+        if(current<1){
+          current++;  
+        }
+        move();
+      });
+
+      $(".left").click(function(){
+        if(current>0){
+          current--;  
+        }
+        move();
+      });
+
+      function move(){
+        var num = current * 540 * -1;
+        // $(".container>ul").css("left",num);
+        $(".container>ul").stop().animate({left:num},300);
+      };
+
+      $(".modal").colorbox({
+        rel:"modal"
+      });
+      $(".youtube").colorbox({
+        iframe:true,
+        innerWidth:1200,
+        innerHeight:600
+      });
+  	});
+  </script>
+
+  <style>
+    .swiper-container {
+      width: 100%;
+      padding-top: 80px;
+      padding-bottom: 50px;
+    }
+    .swiper-slide{
+      background-position: center;
+      background-size: cover;
+      width: 400px;
+      height: 400px;
+    }
+    .swiperimg{width: 400px; height: 400px;}
+
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .bx-wrapper .bx-prev{
+      left: -40px;
+    }
+
+    .bx-wrapper .bx-next{
+      right: -40px;
+}  
+  </style>
+
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="navTop">
+      <ul id="topmenu" class="clearfix">
+        <li><a href="#1st" class="active">DRAMA</a></li>
+        <li><a href="#2st">CHARACTER</a></li>
+        <li><a href="#3st">PHOTO</a></li>
+        <li><a href="#4st">VIDEO</a></li>
+        <li><a href="#5st">OST</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div id="fullpage">
+    <div class="section page" id="page1" data-anchor="1st">
+    </div>
+
+    <div class="section page" id="page2" data-anchor="2st">
+      <div class="swiper-container2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/actorimages02.png" alt=""></div>
+          <div class="swiper-slide"><img src="images/actorimages.png" alt=""></div>
+          <div class="swiper-slide"><img src="images/actorimages04.png" alt=""></div>
+          <div class="swiper-slide"><img src="images/actorimages03.png" alt=""></div>
+          <div class="swiper-slide"><img src="images/actorimages05.png" alt=""></div>
+        </div>
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </div>
+
+    <div class="section page" id="page3" data-anchor="3st">
+      
+    </div>
+
+    <div class="section page" id="page4" data-anchor="4st">
+      <div class="bannerVI">
+        <video width="1920" height="960" autoplay muted loop class="bannervi">
+          <source src="srangbul-video.mp4" type="video/mp4">
+        </video>
+        <a href="https://www.tving.com/contents/E002836241" target="_blank" rel="noopener noreferrer" class="videoBtn">드라마 보러가기</a>
+      </div>
+    </div>
+
+    <div class="section page sliderWrap" id="page5" data-anchor="5st">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="https://www.youtube.com/embed/jGGQyqohOaw" class="youtube">
+              <img src="images/1.jpg" alt="pic" class="swiperimg">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.youtube.com/embed/L4Nrp2HUwVA" class="youtube">
+              <img src="images/2.jpg" alt="pic" class="swiperimg">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.youtube.com/embed/lUR4XSRvmI8?si=f8GOJ7hsSHUoIhU4" class="youtube">
+              <img src="images/3.jpg" alt="pic" class="swiperimg">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.youtube.com/embed/FFmdTU4Cpr8" class="youtube">
+              <img src="images/4.jpg" alt="pic" class="swiperimg">
+            </a> 
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.youtube.com/embed/AbUPBQ2C-O0?si=cs61U-B56cxVfNWf" class="youtube">
+              <img src="images/5.jpg" alt="pic" class="swiperimg">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.youtube.com/embed/lo8O0x1aoKY?si=odXmo50vpwEdqzSK" class="youtube">
+              <img src="images/6.jpg" alt="pic" class="swiperimg">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.youtube.com/embed/_YPmb--p_UQ?si=fo5iuMUcE8NddKop" class="youtube">
+              <img src="images/7.png" alt="pic" class="swiperimg">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.youtube.com/embed/Iqw18RJR03M?si=TtDZzMqLs7nfDLgR" class="youtube">
+              <img src="images/8.jpg" alt="pic" class="swiperimg">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.youtube.com/embed/a0p8PR2uHyY" class="youtube">
+              <img src="images/9.png" alt="pic" class="swiperimg">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.youtube.com/embed/EXJfWc4JciQ" class="youtube">
+              <img src="images/10.jpg" alt="pic" class="swiperimg">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.youtube.com/embed/euI-C1YONaU" class="youtube">
+              <img src="images/11.jpg" alt="pic" class="swiperimg">
+            </a>
+          </div>  
+        </div>      
+      </div>
+    </div>
+
+    <div class="section page fp-auto-height" id="page6" data-anchor="6st">
+      <div class="footer" style="background-color: #000; height: 200px;">
+        <div class="addresswrap">
+          <p class="top">
+            이용약관 | 개인정보취급방침 | 사이트맵 | 고객센터 | 광고 및 제휴문의
+          </p>
+          <p>
+            123-456 서울특별시 구로구 (주)사랑불드라마사이트  사업자등록번호 : 123-45-6782020
+            <br>대표이사 : 김사불  대표번호 : 02-1234-5678 E-Mail: kimlovebul@naver.com
+          </p>
+          <p> Copyright(c) SARANGBUL ALL RIGHT RESERVED</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var swiper = new Swiper('.swiper-container',{
+      effect: 'coverflow',
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows : true
+      }   
+    });
+
+    var swiper = new Swiper('.swiper-container2', {
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        hide: true,
+      },
+    });
+  </script>
+
+</body>
+</html>
+
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+ 
